@@ -1,0 +1,13 @@
+Principles of analytic graphics:
+
+Principle 1: Show comparisons
+
+Principle 2: Show causality, mechanism, explanation, systematic structure
+
+Principle 3: Show multivariate data
+
+Principle 4: Integration of data (multiple modes of evidence)
+
+Principle 5: Describe and Document the evidence with appropriate labels, scales, sources, etc.
+
+Principle 6: Contents
