@@ -1,0 +1,7 @@
+Exploratory graphs
+
+-- To understand data properties
+-- To find patterns in data
+-- To suggest modeling strategies
+-- To debug analysis
+-- To communicate results
