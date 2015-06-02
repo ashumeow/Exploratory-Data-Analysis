@@ -1,0 +1,41 @@
+> ## reading data
+> ig <- read.csv("Digital_Universe_Atlas.csv",colClasses=c("numeric","character","factor","numeric","numeric"))
+> head(ig)
+  ID   Label            X         Y           Z
+1  1     WLM    71746.888  284986.3 -1000684.27
+2  2   IC 10 -623009.4693 1125201.4   -74901.41
+3  3  Cet dw  -50107.1145  248445.3  -820649.76
+4  4 NGC 147 -354813.4467  619093.2  -181151.85
+5  5 And III -390953.4681  695532.4  -393352.12
+6  6 NGC 185 -353760.0603  553112.8   258225.83
+  Distance..light.years. created_at updated_at
+1                3400000    07:57.3    07:57.3
+2                4200000    07:57.3    07:57.3
+3                2800000    07:57.3    07:57.3
+4                2400000    07:57.3    07:57.3
+5                2900000    07:57.3    07:57.3
+6                2300000    07:57.3    07:57.3
+
+> ## five number summary
+> summary(ig$Distance..light.years)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  25000  825000 2900000 2519000 3100000 7900000
+> summary(ig$pm25)
+Length  Class   Mode 
+     0   NULL   NULL
+> ##boxplot
+> boxplot(ig$Distance..light.years,col="red")
+> ## histogram
+> hist(ig$Distance..light.years,col="blue")
+> rug(ig$Distance..light.years)
+> hist(ig$Distance..light.years,col="blue",breaks=100)
+> rug(ig$Distance..light.years)
+> ## overlaying features
+> boxplot(ig$Distance..light.years,col="green")
+> abline(h=12)
+> ## overlaying features in histogram
+> hist(ig$Distance..light.years,col="pink")
+> abline(v=12,lwd=2)
+> abline(v=median(ig$Distance..light.years),col="blue",lwd=4)
+> ## barplot
+> barplot(table(ig$Distance..light.years),col="wheat", main="light years distance")
