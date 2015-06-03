@@ -78,5 +78,13 @@ There should be four PNG files and four R code files, a total of eight files in 
 ```
 ```
 The four plots that you will need to construct are shown below.
-Display plots exactly as it is...
+```
+![](http://geekresearchlab.net/coursera/exp-data/plot1.png)<br>
+![](http://geekresearchlab.net/coursera/exp-data/plot2.png)<br>
+![](http://geekresearchlab.net/coursera/exp-data/plot3.png)<br>
+![](http://geekresearchlab.net/coursera/exp-data/plot4.png)
+```
+Aim of this project:
+
+Display all the four plots exactly as it is...through code execution.
 ```
