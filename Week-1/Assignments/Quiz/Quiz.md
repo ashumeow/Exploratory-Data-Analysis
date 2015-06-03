@@ -10,6 +10,7 @@ Which of the following is a principle of analytic graphics?
 (v) Show box plots (univariate summaries)
 
 Solution:
+(i) Show causality, mechanism, explanation
 
 ```
 ```
@@ -23,6 +24,7 @@ What is the role of exploratory graphs in data analysis?
 (iv) Only a few are constructed.
 
 Solution:
+(iii) They are typically made very quickly.
 
 ```
 ```
@@ -36,6 +38,7 @@ Which of the following is true about the base plotting system?
 (iv) Margins and spacings are adjusted automatically depending on the type of plot and the data
 
 Solution:
+(iii) Plots are created and annotated with separate functions
 
 ```
 ```
@@ -49,6 +52,7 @@ Which of the following is an example of a valid graphics device in R?
 (iv) The keyboard
 
 Solution:
+(i) A PNG file
 
 ```
 ```
@@ -62,6 +66,7 @@ Which of the following is an example of a vector graphics device in R?
 (iv) TIFF
 
 Solution:
+(iii) SVG
 
 ```
 ```
@@ -75,6 +80,7 @@ Bitmapped file formats can be most useful for
 (iv) Plots that may need to be resized
 
 Solution:
+(iii) Scatterplots with many many points
 
 ```
 ```
@@ -88,6 +94,7 @@ Which of the following functions is typically used to add elements to a plot in 
 (iv) plot()
 
 Solution:
+(ii) text()
 
 ```
 ```
@@ -101,6 +108,7 @@ Which function opens the screen graphics device on Windows?
 (iv) postscript()
 
 Solution:
+(ii) windows()
 
 ```
 ```
@@ -114,6 +122,7 @@ What does the 'pch' option to par() control?
 (iv) the line width in the base graphics system
 
 Solution:
+(iii) the plotting symbol/character in the base graphics system
 
 ```
 ```
@@ -128,4 +137,6 @@ which of the following is a correct way of doing that?
 (iv) Open the PostScript device with postscript(), construct the plot, then close the device with dev.off().
 
 Solution:
+(i) Construct the plot on the screen device and then copy it to a PDF file with dev.copy2pdf()
+
 ```
