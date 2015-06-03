@@ -137,3 +137,117 @@ The downloaded binary packages are in
 + plot(Temp,Ozone,main="Ozone and Temperature")
 + mtext("Ozone and Weather in New York City",outer=TRUE)
 + })
+
+> ig <- rnorm(100)
+> hist(ig)
+> meow <- rnorm(100)
+> plot(ig,meow)
+> ig_ig <- rnorm(100)
+> plot(ig,ig_ig)
+> plot(ig,meow)
+> par(mar=c(2,2,2,2))
+> plot(ig,meow)
+> par(mar=c(4,4,2,2))
+> plot(ig,meow)
+> plot(ig,meow,pch=20)
+> plot(ig,meow,pch=19)
+> plot(ig,meow,pch=2)
+> plot(ig,meow,pch=3)
+> plot(ig,meow,pch=4)
+> example(points)
+
+points> require(stats) # for rnorm
+
+points> plot(-4:4, -4:4, type = "n")  # setting up coord. system
+Hit <Return> to see next plot: 
+
+points> points(rnorm(200), rnorm(200), col = "red")
+
+points> points(rnorm(100)/2, rnorm(100)/2, col = "blue", cex = 1.5)
+
+points> op <- par(bg = "light blue")
+
+points> x <- seq(0, 2*pi, len = 51)
+
+points> ## something "between type='b' and type='o'":
+points> plot(x, sin(x), type = "o", pch = 21, bg = par("bg"), col = "blue", cex = .6,
+points+  main = 'plot(..., type="o", pch=21, bg=par("bg"))')
+
+points> par(op)
+
+points> ## Not run: 
+points> ##D ## The figure was produced by calls like
+points> ##D png("pch.png", height = 0.7, width = 7, res = 100, units = "in")
+points> ##D par(mar = rep(0,4))
+points> ##D plot(c(-1, 26), 0:1, type = "n", axes = FALSE)
+points> ##D text(0:25, 0.6, 0:25, cex = 0.5)
+points> ##D points(0:25, rep(0.3, 26), pch = 0:25, bg = "grey")
+points> ## End(Not run)
+points> 
+points> ##-------- Showing all the extra & some char graphics symbols ---------
+points> pchShow <-
+points+   function(extras = c("*",".", "o","O","0","+","-","|","%","#"),
+points+            cex = 3, ## good for both .Device=="postscript" and "x11"
+points+            col = "red3", bg = "gold", coltext = "brown", cextext = 1.2,
+points+            main = paste("plot symbols :  points (...  pch = *, cex =",
+points+                         cex,")"))
+points+   {
+points+     nex <- length(extras)
+points+     np  <- 26 + nex
+points+     ipch <- 0:(np-1)
+points+     k <- floor(sqrt(np))
+points+     dd <- c(-1,1)/2
+points+     rx <- dd + range(ix <- ipch %/% k)
+points+     ry <- dd + range(iy <- 3 + (k-1)- ipch %% k)
+points+     pch <- as.list(ipch) # list with integers & strings
+points+     if(nex > 0) pch[26+ 1:nex] <- as.list(extras)
+points+     plot(rx, ry, type = "n", axes  =  FALSE, xlab = "", ylab = "", main = main)
+points+     abline(v = ix, h = iy, col = "lightgray", lty = "dotted")
+points+     for(i in 1:np) {
+points+       pc <- pch[[i]]
+points+       ## 'col' symbols with a 'bg'-colored interior (where available) :
+points+       points(ix[i], iy[i], pch = pc, col = col, bg = bg, cex = cex)
+points+       if(cextext > 0)
+points+           text(ix[i] - 0.3, iy[i], pc, col = coltext, cex = cextext)
+points+     }
+points+   }
+
+points> pchShow()
+
+points> pchShow(c("o","O","0"), cex = 2.5)
+Hit <Return> to see next plot: 
+
+points> pchShow(NULL, cex = 4, cextext = 0, main = NULL)
+
+points> ## No test: 
+points> ## ------------ test code for various pch specifications -------------
+points> # Try this in various font families (including Hershey)
+points> # and locales.  Use sign = -1 asserts we want Latin-1.
+points> # Standard cases in a MBCS locale will not plot the top half.
+points> TestChars <- function(sign = 1, font = 1, ...)
+points+ {
+points+    MB <- l10n_info()$MBCS
+points+    r <- if(font == 5) { sign <- 1; c(32:126, 160:254)
+points+        } else if(MB) 32:126 else 32:255
+points+    if (sign == -1) r <- c(32:126, 160:255)
+points+    par(pty = "s")
+points+    plot(c(-1,16), c(-1,16), type = "n", xlab = "", ylab = "",
+points+         xaxs = "i", yaxs = "i",
+points+         main = sprintf("sign = %d, font = %d", sign, font))
+points+    grid(17, 17, lty = 1) ; mtext(paste("MBCS:", MB))
+points+    for(i in r) try(points(i%%16, i%/%16, pch = sign*i, font = font,...))
+points+ }
+
+points> TestChars()
+
+points> try(TestChars(sign = -1))
+Hit <Return> to see next plot: 
+## press <Esc> to exit
+> ig <- rnorm(100); meow <- rnorm(100)
+> plot(ig,meow,pch=20)
+> title("scatterplot")
+> text(-2,-2,"IG <3 <3")
+> legend("topleft",legend="Data")
+> legend("topleft",legend="Data",pch=20)
+> fit <- lm(meow ~ ig)
+> abline(fit)
