@@ -82,3 +82,28 @@ The downloaded binary packages are in
 > library(ggplot2)
 > data(mpg)
 > qplot(displ,hwy,data=mpg)
+
+## simple base graphics
+## histogram
+> library(datasets)
+> hist(airquality$Ozone)
+## scatterplot
+> library(datasets)
+> with(airquality,plot(Wind,Ozone))
+## boxplot
+> library(datasets)
+> airquality <- transform(airquality,Month=factor(Month))
+> boxplot(Ozone ~ Month,airquality,xlab="Month",ylab="Ozone")
+## base graphics parameters
+> par("lty")
+[1] "solid"
+> par("col")
+[1] "black"
+> par("pch")
+[1] 1
+> par("bg")
+[1] "white"
+> par("mar")
+[1] 5 4 2 1
+> par("mfrow")
+[1] 1 2
