@@ -302,12 +302,24 @@ Error in plot.new() : figure margins too large
 > points(ig[ig_group=="female"],meow[ig_group=="female"],col="pink",pch=19)
 
 > ## graphics devices in R
+## pdf
 > library(datasets)
 > with(faithful,plot(eruptions,waiting)) ## make plot appear on screen device
 > title(main="Old Faithful Geyser data")
 > pdf(file="./exp-data/myplot.pdf")
 > with(faithful,plot(eruptions,waiting))
 > title(main="Old Faithful Geyser Data")
+> dev.off()
+RStudioGD 
+        2 
+## copying plots
+## png
+> library(datasets)
+> with(faithful,plot(eruptions,waiting))
+> title(main="Old Faithful Geyser data")
+> dev.copy(png,file="./exp-data/geyserplot.png")
+png 
+  4 
 > dev.off()
 RStudioGD 
         2 
