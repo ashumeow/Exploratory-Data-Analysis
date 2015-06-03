@@ -39,3 +39,21 @@ Length  Class   Mode
 > abline(v=median(ig$Distance..light.years),col="blue",lwd=4)
 > ## barplot
 > barplot(table(ig$Distance..light.years),col="wheat", main="light years distance")
+> ## multiple boxplots
+> ig_ig <- read.csv("./exp-data/avgpm25.csv",colClasses=c("numeric","character","factor","numeric","numeric"))
+> ## plotting multiple boxplots
+> boxplot(pm25 ~ region, data=ig_ig,col="red")
+> ## multiple histograms
+> par(mfrow=c(2,1),mar=c(4,4,2,1))
+> hist(subset(ig_ig,region=="east")$pm25,col="green")
+> hist(subset(ig_ig,region=="west")$pm25,col="blue")
+> ## scatterrplot
+> with(ig_ig,plot(latitude,pm25))
+> abline(h=12,lwd=2,lty=2)
+> ## scatterplot -- using color
+> with(ig_ig,plot(latitude,pm25,col=region))
+> abline(h=12,lwd=2,lty=2)
+> ## multiple scatterplots
+> par(mfrow=c(1,2),mar=c(5,4,2,1))
+> with(subset(ig_ig,region=="west"),plot(latitude,pm25,main="West"))
+> with(subset(ig_ig,region=="east"),plot(latitude,pm25,main="East"))
