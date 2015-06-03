@@ -39,6 +39,7 @@ Length  Class   Mode
 > abline(v=median(ig$Distance..light.years),col="blue",lwd=4)
 > ## barplot
 > barplot(table(ig$Distance..light.years),col="wheat", main="light years distance")
+
 > ## multiple boxplots
 > ig_ig <- read.csv("./exp-data/avgpm25.csv",colClasses=c("numeric","character","factor","numeric","numeric"))
 > ## plotting multiple boxplots
@@ -57,3 +58,27 @@ Length  Class   Mode
 > par(mfrow=c(1,2),mar=c(5,4,2,1))
 > with(subset(ig_ig,region=="west"),plot(latitude,pm25,main="West"))
 > with(subset(ig_ig,region=="east"),plot(latitude,pm25,main="East"))
+
+> ## base plot
+> library(datasets)
+> data(cars)
+> with(cars,plot(speed,dist))
+> ## lattice thingy => xyplot, bwplot
+> ## lattice plot
+> library(lattice)
+> state <- data.frame(state.x77,region=state.region)
+> xyplot(Life.Exp ~ Income | region,data=state,layout=c(4,1))
+> ## ggplot2
+trying URL 'http://cran.rstudio.com/bin/windows/contrib/3.1/ggplot2_1.0.1.zip'
+Content type 'application/zip' length 2676917 bytes (2.6 MB)
+opened URL
+downloaded 2.6 MB
+
+package ‘ggplot2’ successfully unpacked and MD5 sums checked
+
+The downloaded binary packages are in
+	C:\Users\dell\AppData\Local\Temp\Rtmpcf1eQL\downloaded_packages
+
+> library(ggplot2)
+> data(mpg)
+> qplot(displ,hwy,data=mpg)
