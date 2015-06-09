@@ -1,0 +1,12 @@
+> ## lattice plotting system
+> library(lattice)
+> library(datasets)
+> ## simple scatterplot
+> xyplot(Ozone ~ Wind, data = airquality)
+> ## convert 'month' to a factor variable
+> airquality <- transform(airquality,Month=factor(Month))
+> xyplot(Ozone ~ Wind | Month,data=airquality,layout=c(5,1))
+> ## lattice behaviour
+> ig <- xyplot(Ozone ~ Wind,data=airquality)
+> print(ig) ## plot appears
+> xyplot(Ozone ~ Wind,data=airquality) ## auto-plotting
