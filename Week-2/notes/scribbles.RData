@@ -90,3 +90,18 @@ geom_smooth: method="auto" and size of largest group is <1000, so using loess. U
 > g + geom_point() + facet_grid(.~trans) + geom_smooth(method = "lm") 
 Warning message:
 In loop_apply(n, do.ply) : NaNs produced
+
+> g + geom_point(color="steelblue",size = 4,alpha = 1/2)
+> g + geom_point(aes(color=drv),size = 4,alpha = 1/2)
+> g + geom_point(aes(color=drv),size = 4,alpha = 1/2) + labs(title = "hello") + labs(x = expression("log " * PM[2.5]), y = "city")
+> g + geom_point(aes(color=drv),size = 4,alpha = 1/2) + geom_smooth(size = 4, linetype = 3, method = "lm", se = FALSE)
+> g + geom_point(aes(color=drv),size = 4,alpha = 1/2)+theme_bw(base_family ="Times")
+> ## axis limits
+> testdat <- data.frame(x = 1:100, y = rnorm(100))
+There were 20 warnings (use warnings() to see them)
+> testdat[50,2] <- 100  ## Outlier
+> plot(testdat$x, testdat$y, type = "l", ylim = c(-3,3))
+> g <- ggplot(testdat, aes(x = x, y = y))
+> g + geom_line()
+> g + geom_line() + ylim(-3, 3)
+> g + geom_line() + coord_cartesian(ylim = c(-3, 3))
