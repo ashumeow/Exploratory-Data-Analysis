@@ -50,3 +50,11 @@
 geom_smooth: method="auto" and size of largest group is <1000, so using loess. Use 'method = x' to change the smoothing method.
 > qplot(hwy,data=mpg,fill=drv) ## hist
 stat_bin: binwidth defaulted to range/30. Use 'binwidth = x' to adjust this.
+> qplot(log(hwy),data=mpg,geom="density")
+> qplot(log(hwy),data=mpg,geom="density",color=drv)
+> ## scatterplot
+> qplot(log(displ),log(hwy),data=mpg)
+> qplot(log(displ),log(hwy),data=mpg,shape=drv)
+> qplot(log(displ),log(hwy),data=mpg,color=drv)
+> qplot(log(displ),log(hwy),data=mpg,color=drv,geom=c("point","smooth"),method="lm")
+> qplot(log(displ),log(hwy),data=mpg,geom=c("point","smooth"),method="lm",facets=.~drv)
