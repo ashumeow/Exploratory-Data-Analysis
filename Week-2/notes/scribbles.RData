@@ -105,3 +105,13 @@ There were 20 warnings (use warnings() to see them)
 > g + geom_line()
 > g + geom_line() + ylim(-3, 3)
 > g + geom_line() + coord_cartesian(ylim = c(-3, 3))
+> ## Calculate the deciles of the data
+> cutpoints <- quantile(mpg$displ, seq(0, 1, length = 11), na.rm = TRUE)
+> ## Cut the data at the deciles and create a new factor variable!
+> mpg$hwy <- cut(mpg$displ, cutpoints)
+> levels(mpg$hwy)
+ [1] "(1.6,2]"   "(2,2.2]"   "(2.2,2.5]" "(2.5,2.8]" "(2.8,3.3]" "(3.3,3.8]" "(3.8,4.2]"
+ [8] "(4.2,4.7]" "(4.7,5.4]" "(5.4,7]" 
+ > ## final plot
+> ## Setup ggplot with data frame
+> g <- ggplot(mpg, aes(displ, cty))
