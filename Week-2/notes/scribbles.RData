@@ -10,3 +10,20 @@
 > ig <- xyplot(Ozone ~ Wind,data=airquality)
 > print(ig) ## plot appears
 > xyplot(Ozone ~ Wind,data=airquality) ## auto-plotting
+> ## lattice panel functions
+> set.seed(100)
+> x <- rnorm(100)
+> f <- rep(0:1,each=50)
+> y <- x+f-f*x+rnorm(100,sd=0.5)
+> f <- factor(f,labels=c("Group 1","Group 2"))
+> xyplot(y ~ x | f,layout=c(2,1)) ##plot with 2 panels
+> ## custom panel function
+> xyplot(y ~ x | f,panel=function(x,y,...) {
++ panel.xyplot(x,y,...) ## first call the default function "xyplot
++ panel.abline(h=median(y),lty=2) ## add horizontal line at the median
++ })
+> ## regression lines
+> xyplot(y ~ x | f,panel=function(x,y,...) {
++ panel.xyplot(x,y,...) ## first call the default function
++ panel.lmline(x,y,col=2) ## overlay a simple regression line
++ })
