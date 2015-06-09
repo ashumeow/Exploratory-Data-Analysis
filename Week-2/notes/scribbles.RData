@@ -58,3 +58,35 @@ stat_bin: binwidth defaulted to range/30. Use 'binwidth = x' to adjust this.
 > qplot(log(displ),log(hwy),data=mpg,color=drv)
 > qplot(log(displ),log(hwy),data=mpg,color=drv,geom=c("point","smooth"),method="lm")
 > qplot(log(displ),log(hwy),data=mpg,geom=c("point","smooth"),method="lm",facets=.~drv)
+> head(mpg)
+  manufacturer model displ year cyl      trans
+1         audi    a4   1.8 1999   4   auto(l5)
+2         audi    a4   1.8 1999   4 manual(m5)
+3         audi    a4   2.0 2008   4 manual(m6)
+4         audi    a4   2.0 2008   4   auto(av)
+5         audi    a4   2.8 1999   6   auto(l5)
+6         audi    a4   2.8 1999   6 manual(m5)
+  drv cty hwy fl   class
+1   f  18  29  p compact
+2   f  21  29  p compact
+3   f  20  31  p compact
+4   f  21  30  p compact
+5   f  16  26  p compact
+6   f  18  26  p compact
+
+> g <- ggplot(mpg,aes(displ,cty))
+> print (g)
+Error: No layers in plot
+> p <- g + geom_point()
+> print (p)
+> g + geom_point() ## auto-printing
+> ## 1st plot with point layer
+> g <- ggplot(mpg, aes(displ, cty))
+> g + geom_point()
+> g + geom_point() + geom_smooth()
+geom_smooth: method="auto" and size of largest group is <1000, so using loess. Use 'method = x' to change the smoothing method.
+> g + geom_point() + geom_smooth(method="lm")
+> ## adding more layers
+> g + geom_point() + facet_grid(.~trans) + geom_smooth(method = "lm") 
+Warning message:
+In loop_apply(n, do.ply) : NaNs produced
