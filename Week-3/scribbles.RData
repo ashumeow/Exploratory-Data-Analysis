@@ -173,3 +173,10 @@ Error in nrow(dataMatrixOrdered):1 : argument of length 0
 > image(t(dataMatrixOrdered)[,nrow(dataMatrixOrdered):1])
 > plot(svd2$v[,1],pch=19,xlab="Column",ylab="first right singular vector")
 > plot(svd2$v[,2],pch=19,xlab="Column",ylab="second right singular vector")
+
+> ## missing values
+> dataMatrix2 <- dataMatrixOrdered
+> ## randomly insert some missing data
+> dataMatrix2[sample(1:100,size=40,replace=FALSE)] <- NA
+> svd1 <- svd(scale(dataMatrix2)) ## doesn't work fellas!
+Error in svd(scale(dataMatrix2)) : infinite or missing values in 'x'
