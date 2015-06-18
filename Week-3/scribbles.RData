@@ -165,7 +165,7 @@
 > image(t(dataMatrixOrdered)[,nrow(dataMatrixOrdered):1])
 Error in nrow(dataMatrixOrdered):1 : argument of length 0
 > plot(rep(c(0,1),each=5),pch=19,xlab="Column",ylab="Pattern 1")
-> plot(rep(c(0,1),5),pch=19,xlab="Column",ylab="Pattern 1")
+> plot(rep(c(0,1),5),pch=19,xlab="Column",ylab="Pattern 2")
 > image(t(dataMatrixOrdered)[,nrow(dataMatrixOrdered):1])
 > ## patterns of variance in rows
 > svd2 <- svd(scale(dataMatrixOrdered))
