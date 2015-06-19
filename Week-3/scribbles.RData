@@ -231,3 +231,7 @@ The downloaded binary packages are in
 > x <- rnorm(10000)
 > y <- rnorm(10000)
 > smoothScatter(x,y)
+> ## scatterplot with no transparency
+> plot(x,y,pch=19)
+> ## scatterplot with transparency
+> plot(x,y,col=rgb(0,0,0,0.2),pch=19)
