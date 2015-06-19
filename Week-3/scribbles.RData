@@ -212,3 +212,22 @@ Error in svd(scale(dataMatrix2)) : infinite or missing values in 'x'
 > pal(10)
  [1] "#FF0000" "#FF1C00" "#FF3800" "#FF5500" "#FF7100" "#FF8D00" "#FFAA00"
  [8] "#FFC600" "#FFE200" "#FFFF00"
+
+> install.packages("RColorBrewer")
+trying URL 'http://ftp.iitm.ac.in/cran/bin/windows/contrib/3.2/RColorBrewer_1.1-2.zip'
+Content type 'application/zip' length 26732 bytes (26 KB)
+downloaded 26 KB
+
+package ‘RColorBrewer’ successfully unpacked and MD5 sums checked
+
+The downloaded binary packages are in
+        C:\Users\dell\AppData\Local\Temp\RtmpctyTId\downloaded_packages
+> library(RColorBrewer)
+> cols <- brewer.pal(3,"BuGn")
+> cols
+[1] "#E5F5F9" "#99D8C9" "#2CA25F"
+> pal <- colorRampPalette(cols)
+> image(volcano,col=pal(20))
+> x <- rnorm(10000)
+> y <- rnorm(10000)
+> smoothScatter(x,y)
